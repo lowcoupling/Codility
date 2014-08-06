@@ -1,0 +1,23 @@
+mport java.util.*;
+class Solution {
+    public int[] solution(int N, int[] A) {
+        int []counters = new int[N];
+        for (int i=0;i<N;i++){
+            counters[i]=0;
+        }
+        int len = A.length;
+        int max =0;
+        for (int p=0;p<len;p++){
+            if(A[p]>N){
+                for (int i =0;i<N;i++){
+                    counters[i] = max;
+                }
+            }else{
+              counters[A[p]-1]++;
+              int val = counters[A[p]-1];
+              if(val>max) max= val;
+            }
+        }
+        return counters;
+    }
+}
