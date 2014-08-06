@@ -1,0 +1,23 @@
+import java.util.*;
+class Solution {
+    public int solution(int[] A) {
+        int n = A.length;
+        if(n==0) return 1;
+        
+        HashMap<Integer,Integer> values = new HashMap<Integer,Integer>();
+        for (int p=1;p<=n+1;p++){
+            values.put(p,p);
+        }
+        for (int p=0;p<n;p++){
+            values.remove(A[p]);
+        }
+        Iterator<Integer> it = values.keySet().iterator();
+        int missing = Integer.MAX_VALUE;
+        while (it.hasNext()){
+            int tmp =it.next();
+            if (tmp<missing)missing=tmp;
+        }
+        return missing;
+    }
+}
+
