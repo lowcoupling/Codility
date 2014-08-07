@@ -1,0 +1,22 @@
+class Solution {
+    public int solution(int[] A) {
+        // write your code in Java SE 8
+        int n = A.length;
+        if (n>1000000000) return -1;
+        int [] counters = new int [n];
+        int zeroCount =0;
+        for (int p=0;p<n;p++){
+            if (A[p]==1){
+                counters[p]=zeroCount;
+            }else{
+                zeroCount++;
+            }
+        }
+        int sum =0;
+        for (int p=0;p<n;p++){
+            sum +=counters[p];
+        }
+        return sum;
+    }
+}
+
